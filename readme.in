@@ -1,0 +1,305 @@
+/**********************************************************/
+/* history  | 26.06.09 NEW                                */
+/*          |                                             */
+/*          |                                             */
+/**********************************************************/
+
+
+/**********************************************************/
+/* MODULE LIST                                            */
+/**********************************************************/
+this system consists of multiple layers,BSW,SAC,APL,SIM.
+
+
+/*--------------------------------------------------------*/
+/* BSW                                                    */
+/*--------------------------------------------------------*/
+BSW
+|- bios2bswif.h
+|   |- *u1g_bios2bswif_acelthl
+|   |- *u1g_bios2bswif_brkpdl
+|   |- *u1g_bios2bswif_clthpdl
+|   |- *u1g_bios2bswif_gear
+|   |- *u1g_bios2bswif_igsw|
+|- bschedulif.h
+|   |- *u1g_bscheduleif_cnt
+|   |- *u1g_bscheduleif_rstflg
+|   |- ^vdg_bscheduleif_call()
+|- bcyclemngif.h
+|   |- ^vdg_bcyclemngif_pwon()
+|   |- ^vdg_bcyclemngif_4ms()
+|   |- ^vdg_bcyclemngif_16ms()
+|   |- ^vdg_bcyclemngif_64ms()
+|- blogconsolif.h
+|   |- ^vdg_blogconsolif_64ms()
+|- bbswrstif.h
+|   |- ^vdg_bbswrstif_pwon()
+
+/*--------------------------------------------------------*/
+/* SAC                                                    */
+/*--------------------------------------------------------*/
+SAC
+|- sacelcrtif.h
+|   |- ^vdg_sacelcrtif_pwon()
+|   |- ^vdg_sacelcrtif_4msm()
+|   |- *u1g_sacelcrtif_thlpct
+|   |- *u1g_sacelcrtif_crtflg
+|- sbrkcrtif.h
+|   |- ^vdg_sbrkcrtif_pwon()
+|   |- ^vdg_sbrkcrtif_4msm()
+|   |- *u1g_sbrkcrtif_pdlpct
+|   |- *u1g_sbrkcrtif_crtflg
+|- sclthcrtif.h
+|   |- ^vdg_sclthcrtif_pwon()
+|   |- ^vdg_sclthcrtif_16msm()
+|   |- *u1g_sclthcrtif_pdlpct
+|   |- *u1g_sclthcrtif_crtflg
+|- sigswcrtif.h
+|   |- ^vdg_sigswcrtif_pwon()
+|   |- ^vdg_sigswcrtif_16msm()
+|   |- * u1g_sigsw_sts
+|- sgearcrtif.h
+|   |- ^vdg_sgearcrtif_pwon()
+|   |- ^vdg_sgearcrtif_16msm()　
+|   |- *s1g_sgearcrtif_pos
+|- avelif.h
+|   |- ^vdg_avelif_pwon()
+|   |- ^vdg_avelif_16msm()
+|   |- *u2g_avelif_spd
+|- arpmcfmif.h
+|   |- ^vdg_arpmcfmif_pwon()
+|   |- ^vdg_arpmcfmif_16msm()
+|   |- *u2g_arpmcfmif_val
+|- agearcfmif.h
+|   |- ^vdg_sgearcfmif_pwon()
+|   |- ^vdg_sgearcfmif_16msm()
+|   |- *s1g_sgearcfmif_pos
+
+/*--------------------------------------------------------*/
+/* APL                                                    */
+/*--------------------------------------------------------*/
+APL
+|- ppermif.h
+|   |- ^vdg_ppermif_pwon()
+|   |- ^vdg_ppermif_4msm()
+|   |- *u1g_ppermif_eng
+|   |- *u1g_ppermif_sht
+|- pprtctif.h
+|   |- ^vdg_pprtctif_pwon()
+|   |- ^vdg_pprtctif_4msm()
+|   |- *u1g_pprtctif_ovrvsts
+|   |- *u1g_pprtctif_clthszsts
+|   |- *u1g_pprtctif_brkszsts
+|   |- *u1g_pprtctif_enststs
+|- pwarnif.h
+|   |- ^vdg_pwarnif_pwon()
+|   |- ^vdg_pwarnif_64msm()
+|   |- *u1g_pwarnif_ovrhet
+|   |- *u1g_pwarnif_snserr
+|   |- *u1g_pwarnif_stserr
+|- psimbrdgif.h
+|   |- ^vdg_psimbrdgif_pwon()
+|   |- ^vdg_psimbrdgif_4msm()　
+|   |- *u1g_psimbrdgif_aclthlpct
+|   |- *u1g_psimbrdgif_brkthlpct
+|   |- *u1g_psimbrdgif_clththlpct
+|   |- *s1g_psimbrdgif_gearpos
+|   |- *u2g_psimbrdgif_velspd
+|   |- *u2g_psimbrdgif_rpmval
+|   |- *s1g_psimbrdgif_gearcfmpos
+|- pvehstsif.h
+|   |- ^vdg_pvehstsif_pwon()
+|   |- ^vdg_pvehstsif_64msm()　
+|   |- *u1g_pvehstsif_stop
+|   |- *u1g_pvehstsif_run
+|   |- *u1g_pvehstsif_spdup
+|   |- *u1g_pvehstsif_spddw
+|   |- *u1g_pvehstsif_enst
+
+/*--------------------------------------------------------*/
+/* SIM                                                    */
+/*--------------------------------------------------------*/
+SIM
+|-mengif.h
+|   |- ^vdg_mengif_pwon()
+|   |- ^vdg_mengif_4msm()
+|   |- *u1g_mengif_trq
+|   |- *u1g_mengif_rpm
+|- mclthif.h
+|   |- ^vdg_mclthif_pwon()
+|   |- ^vdg_mclthif_4msm()
+|   |- *u1g_mclthif_transtrq
+|   |- *u1g_mclthif_amtslip
+|   |- *u1g_mclthif_temp
+|- mgearboxif.h
+|   |- ^vdg_mgearboxif_pwon()
+|   |- ^vdg_mgearboxif_4msm()
+|   |- *u1g_mgearboxif_outtrq
+|   |- *u1g_mgearboxif_gearrto
+|- mvirtmachif.h
+|   |- ^vdg_mvirtmachif_pwon()
+|   |- ^vdg_mvirtmachif_4msm()　
+|   |- *u1g_mvirtmachif_speed
+|   |- *u1g_mvirtmachif_acelratn
+|   |- *u1g_mvirtmachif_trvldist
+|- mbrakeif.h
+|   |- ^vdg_mbrakeif_pwon()
+|   |- ^vdg_mbrakeif_4msm()　
+|   |- *u1g_mbrakeif_force
+|   |- *u1g_mbrakeif_temp
+
+/*--------------------------------------------------------*/
+/* BSW/bios2bswif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bios2bswif.h
+|- *u1g_bios2bswif_acelthl  accel throttle opening 0-100[%]
+|- *u1g_bios2bswif_brkpdl   brake pedal opening    0-100[%]
+|- *u1g_bios2bswif_clthpdl  clutch pedal opening   0-100[%]
+|- *u1g_bios2bswif_gear     gear status    1,2,3,4,5,6,N[-]
+|- *u1g_bios2bswif_igsw     ignition status 0(off),1(on)[-]
+
+rename and publish the swift label.
+
+/*--------------------------------------------------------*/
+/* BSW/bschedulif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bschedulif.h
+|- *u1g_bscheduleif_cnt     called count[-]
+|- *u1g_bscheduleif_rstflg  reset flag[-]
+|- ^vdg_bscheduleif_call()
+
+Each time it's called from swift, the internal count is 
+incremented by one count.
+1 count -> call 4msmng 4 times.
+2 count -> call 16msmng 1 times.
+4 count -> call 64msmng 1 times.
+
+/*--------------------------------------------------------*/
+/* BSW/bcyclemngif.h                                      */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bcyclemngif.h
+|- ^vdg_bcyclemngif_pwon()
+|- ^vdg_bcyclemngif_4ms()
+|- ^vdg_bcyclemngif_16ms()
+|- ^vdg_bcyclemngif_64ms()
+
+The function is managed on a periodic basis
+
+/*--------------------------------------------------------*/
+/* BSW/blogconsolif.h                                     */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+blogconsolif.h
+|- ^vdg_blogconsolif_64ms()
+
+For the purpose of status monitoring, internal information
+logs are converted to an output format.
+
+/*--------------------------------------------------------*/
+/* BSW/bbswrstif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bbswrstif.h
+|- ^vdg_bbswrstif_pwon()
+
+Perform initialization within the BSW.
+
+/*--------------------------------------------------------*/
+/* SAC/sacelcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/sbrkcrtif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/sclthcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/sigswcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/sgearcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/avelif.h                                           */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/arpmcfmif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/agearcfmif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/ppermif.h                                          */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/pprtctif.h                                         */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/pwarnif.h                                          */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/psimbrdgif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/pvehstsif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mengif.h                                           */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mclthif.h                                          */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mgearboxif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mvirtmachif.h                                      */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mbrakeif.h                                         */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+
